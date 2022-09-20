@@ -1,10 +1,6 @@
 Data Import
 ================
 
-``` r
-library(tidyverse)
-```
-
     ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
     ## ✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
     ## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
@@ -130,3 +126,40 @@ read_csv("data/FAS_litters.csv", na = c("","NA",999,88, skip=2)
 ```
 
 ## Other File Formats
+
+We need to read in an excel spreadsheet …
+
+``` r
+mlb_df = read_excel("data/mlb11.xlsx")
+```
+
+``` r
+view(mlb_df)
+```
+
+``` r
+lotr_words_df = read_excel("data/LotR_words.xlsx", range="B3:D6")
+```
+
+## Still more formats …
+
+Read in a SAS dataset.
+
+``` r
+pulse_df = read_sas("data/public_pulse_data.sas7bdat")
+view(pulse_df)
+```
+
+## Data Export
+
+``` r
+write_csv(lotr_words_df, file = "data/LotR_words_df.csv")
+```
+
+## Why not base r???
+
+better to use \_ instead of .
+
+``` r
+dont_do_this_df = read.csv("data/FAS_litters.csv")
+```
